@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AttendWise - Dashboard</title>
-    <!-- We use an icon library for the buttons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,21 +11,24 @@
 
     <!-- This is the hidden slide-out menu -->
     <nav id="slide-out-menu" class="side-menu">
-        <!-- Menu Navigation with corrected labels -->
+        <!-- ======================================= -->
+        <!-- START: CORRECTED MENU NAVIGATION        -->
+        <!-- ======================================= -->
         <div class="menu-nav">
-            <button class="nav-button active" data-view="add-edit-view">
+            <!-- Text labels inside <span> tags are now removed -->
+            <button class="nav-button active" data-view="add-edit-view" title="Add/Edit">
                 <i class="fa-solid fa-plus"></i>
-                <span class="nav-label">Add</span>
             </button>
-            <button class="nav-button" data-view="settings-view">
+            <button class="nav-button" data-view="settings-view" title="Settings">
                 <i class="fa-solid fa-gear"></i>
-                <span class="nav-label">Settings</span>
             </button>
-            <button class="nav-button" data-view="about-view">
+            <button class="nav-button" data-view="about-view" title="About">
                 <i class="fa-solid fa-circle-info"></i>
-                <span class="nav-label">About</span>
             </button>
         </div>
+        <!-- ======================================= -->
+        <!-- END: CORRECTED MENU NAVIGATION          -->
+        <!-- ======================================= -->
 
         <div class="menu-content">
             <!-- VIEW 1: Add or Edit a Subject -->
@@ -37,18 +39,9 @@
                 </div>
                 <div class="menu-body">
                     <form id="add-subject-form">
-                        <div class="form-group">
-                            <label for="subject-name">Subject Name</label>
-                            <input type="text" id="subject-name" placeholder="e.g., Data Structures" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="total-classes">Total Classes</label>
-                            <input type="number" id="total-classes" placeholder="e.g., 50" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="min-attendance">Required %</label>
-                            <input type="number" id="min-attendance" placeholder="e.g., 75" required>
-                        </div>
+                        <div class="form-group"><label for="subject-name">Subject Name</label><input type="text" id="subject-name" placeholder="e.g., Data Structures" required></div>
+                        <div class="form-group"><label for="total-classes">Total Classes</label><input type="number" id="total-classes" placeholder="e.g., 50" required></div>
+                        <div class="form-group"><label for="min-attendance">Required %</label><input type="number" id="min-attendance" placeholder="e.g., 75" required></div>
                         <button type="submit" id="form-submit-btn" class="form-button">Add Subject</button>
                     </form>
                 </div>
@@ -56,25 +49,10 @@
 
             <!-- VIEW 2: Settings -->
             <div id="settings-view" class="menu-view">
-                <div class="menu-header">
-                    <h2>Settings</h2>
-                </div>
+                <div class="menu-header"><h2>Settings</h2></div>
                 <div class="menu-body">
-                    <div class="settings-group">
-                        <label for="default-attendance-input">Default Attendance %</label>
-                        <input type="number" id="default-attendance-input" placeholder="75">
-                    </div>
-                    <div class="settings-group">
-                        <label>Theme</label>
-                        <div class="theme-toggle">
-                            <span class="theme-label">Light</span>
-                            <label class="switch">
-                                <input type="checkbox" id="theme-toggle-checkbox">
-                                <span class="slider round"></span>
-                            </label>
-                            <span class="theme-label">Dark</span>
-                        </div>
-                    </div>
+                    <div class="settings-group"><label for="default-attendance-input">Default Attendance %</label><input type="number" id="default-attendance-input" placeholder="75"></div>
+                    <div class="settings-group"><label>Theme</label><div class="theme-toggle"><span class="theme-label">Light</span><label class="switch"><input type="checkbox" id="theme-toggle-checkbox"><span class="slider round"></span></label><span class="theme-label">Dark</span></div></div>
                     <div class="divider"></div>
                     <button id="clear-data-btn" class="danger-button">Clear All Data</button>
                 </div>
@@ -82,16 +60,9 @@
 
             <!-- VIEW 3: About -->
             <div id="about-view" class="menu-view">
-                <div class="menu-header">
-                    <h2>About</h2>
-                </div>
+                <div class="menu-header"><h2>About</h2></div>
                 <div class="menu-body about-section">
-                    <h3>AttendWise</h3>
-                    <p>Version 1.0</p>
-                    <p>A smart attendance manager to help you stay on track.</p>
-                    <div class="divider"></div>
-                    <p>Created by [Your Name Here]</p>
-                    <a href="https://github.com" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                    <h3>AttendWise</h3><p>Version 1.0</p><p>A smart attendance manager to help you stay on track.</p><div class="divider"></div><p>Created by [Your Name Here]</p><a href="https://github.com" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> View on GitHub</a>
                 </div>
             </div>
         </div>
@@ -104,16 +75,22 @@
             <button id="open-menu-btn" class="menu-btn">☰</button>
             <h1 class="app-title">AttendWise</h1>
         </header>
-    
         <main class="main-content">
             <div id="subject-cards-container" class="subjects-list">
-                <!-- Our subject cards will go here later -->
-                <h2>Main content area</h2>
+                <!-- Our subject cards will go here -->
             </div>
         </main>
     </div>
 
-    <!-- The template is no longer needed here as it's fully managed by JS -->
+    <!-- The template for our subject cards -->
+    <template id="subject-card-template">
+        <div class="subject-card">
+            <div class="card-header"><h3 class="subject-title">Subject Name</h3><div class="card-actions"><button class="card-action-btn edit-btn" title="Edit"><i class="fa-solid fa-pencil"></i></button><button class="card-action-btn delete-btn" title="Delete"><i class="fa-solid fa-trash"></i></button></div></div>
+            <div class="card-body"><div class="progress-bar-container"><div class="progress-bar"></div></div><div class="stats-grid"><div class="stat-item"><span class="stat-label">Present</span><span class="stat-value attended-count">0</span></div><div class="stat-item"><span class="stat-label">Absent</span><span class="stat-value absent-count">0</span></div><div class="stat-item"><span class="stat-label">Percentage</span><span class="stat-value percentage-count">-%</span></div></div></div>
+            <div class="card-footer"><p class="bunk-status">SAFE</p><div class="attendance-buttons"><button class="attendance-btn present-btn" title="Mark Present"><i class="fa-solid fa-check"></i> Present</button><button class="attendance-btn absent-btn" title="Mark Absent"><i class="fa-solid fa-xmark"></i> Absent</button><button class="attendance-btn no-class-btn" title="No Class Today"><i class="fa-solid fa-ban"></i> No Class</button></div></div>
+        </div>
+    </template>
+
     <script src="main.js"></script>
 </body>
 </html>
