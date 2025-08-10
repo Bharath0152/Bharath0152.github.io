@@ -1,0 +1,402 @@
+/* General reset and body styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ============================================= */
+/*          STYLES FOR SPLASH SCREEN             */
+/* ============================================= */
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.splash-title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #444;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite, fadeIn 1.5s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================= */
+/*          STYLES FOR MAIN PAGE & HEADER        */
+/* ============================================= */
+.main-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+/* ============================================= */
+/*          STYLES FOR SLIDE-OUT MENU            */
+/* ============================================= */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 380px; /* Increased width to accommodate nav bar */
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform .3s ease-in-out;
+    display: flex;
+}
+
+.side-menu.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-nav {
+    width: 80px;
+    background-color: #f0f2f5;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    width: 90%;
+    height: 65px;
+    border-radius: 8px;
+    color: #555;
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    padding: 5px;
+}
+
+.nav-button i {
+    font-size: 20px;
+}
+
+.nav-button .nav-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.nav-button.active,
+.nav-button:hover {
+    background-color: #1877f2;
+    color: white;
+}
+
+.menu-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-view {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+}
+
+.menu-view.active {
+    display: flex;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.menu-body {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Form Styles */
+#add-subject-form .form-group {
+    margin-bottom: 20px;
+}
+
+#add-subject-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#add-subject-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #166fe5;
+}
+
+/* Settings & About Styles */
+.divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+}
+
+.settings-group {
+    margin-bottom: 20px;
+}
+
+.settings-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.settings-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.danger-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f02849;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.danger-button:hover {
+    background-color: #d9203d;
+}
+
+.about-section {
+    font-size: .9rem;
+    color: #555;
+}
+
+.about-section h3 {
+    margin: 0;
+    color: #1877f2;
+}
+
+.about-section p {
+    margin: 5px 0;
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #1877f2;
+    font-weight: bold;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
+/* Theme Toggle Switch */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #1877f2;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+/* ============================================= */
+/*           DARK MODE STYLES                    */
+/* ============================================= */
+body.dark-mode {
+    background-color: #18191a;
+    color: #e4e6eb;
+}
+
+body.dark-mode .main-header,
+body.dark-mode .side-menu {
+    background-color: #242526;
+    color: #e4e6eb;
+}
+
+body.dark-mode .menu-nav {
+    background-color: #18191a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode label {
+    color: #e4e6eb;
+}
+
+body.dark-mode .about-section {
+    color: #b0b3b8;
+}
+
+body.dark-mode .divider {
+    background-color: #3a3b3c;
+}
