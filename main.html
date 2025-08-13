@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AttendWise - Dashboard</title>
+    <title>ATTEND-WISE - Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,11 +11,8 @@
 
     <!-- This is the hidden slide-out menu -->
     <nav id="slide-out-menu" class="side-menu">
-        <!-- ======================================= -->
-        <!-- START: CORRECTED MENU NAVIGATION        -->
-        <!-- ======================================= -->
+        <!-- Menu Navigation with Icons Only -->
         <div class="menu-nav">
-            <!-- Text labels inside <span> tags are now removed -->
             <button class="nav-button active" data-view="add-edit-view" title="Add/Edit">
                 <i class="fa-solid fa-plus"></i>
             </button>
@@ -26,9 +23,6 @@
                 <i class="fa-solid fa-circle-info"></i>
             </button>
         </div>
-        <!-- ======================================= -->
-        <!-- END: CORRECTED MENU NAVIGATION          -->
-        <!-- ======================================= -->
 
         <div class="menu-content">
             <!-- VIEW 1: Add or Edit a Subject -->
@@ -62,7 +56,7 @@
             <div id="about-view" class="menu-view">
                 <div class="menu-header"><h2>About</h2></div>
                 <div class="menu-body about-section">
-                    <h3>AttendWise</h3><p>Version 1.0</p><p>A smart attendance manager to help you stay on track.</p><div class="divider"></div><p>Created by [Your Name Here]</p><a href="https://github.com" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> View on GitHub</a>
+                    <h3>ATTEND-WISE</h3><p>Version 1.0</p><p>A smart attendance manager to help you stay on track.</p><div class="divider"></div><p>Created by [Your Name Here]</p><a href="https://github.com" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> View on GitHub</a>
                 </div>
             </div>
         </div>
@@ -73,7 +67,7 @@
     <div class="page-wrap">
         <header class="main-header">
             <button id="open-menu-btn" class="menu-btn">☰</button>
-            <h1 class="app-title">AttendWise</h1>
+            <h1 class="app-title">ATTEND-WISE</h1>
         </header>
         <main class="main-content">
             <div id="subject-cards-container" class="subjects-list">
@@ -82,7 +76,6 @@
         </main>
     </div>
 
-    <!-- The template for our subject cards -->
     <template id="subject-card-template">
         <div class="subject-card">
             <div class="card-header"><h3 class="subject-title">Subject Name</h3><div class="card-actions"><button class="card-action-btn edit-btn" title="Edit"><i class="fa-solid fa-pencil"></i></button><button class="card-action-btn delete-btn" title="Delete"><i class="fa-solid fa-trash"></i></button></div></div>
