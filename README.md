@@ -3,7 +3,7 @@ Attend-Wise - A Smart Attendance Tracker.
 
 AttendWise is a responsive, client-side web application designed to help students track and manage their class attendance. It provides a clean, modern interface to monitor attendance percentages for multiple subjects and offers intelligent guidance to ensure users stay above minimum requirements.
 
-Live Demo:[https://your-github-username.github.io/](https://your-github-bharath0152.github.io/)
+Live Demo:[https://your-github-username.github.io/](https://bharath0152.github.io/)
 
 ---
 
